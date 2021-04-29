@@ -32,11 +32,13 @@ class FlutterGraphQLApi {
 
         @JvmStatic
         fun query(flutterResult: MethodChannel.Result, request: Map<String, Any>) {
+            var apiName: String
             var document: String
             var variables: Map<String, Any>
             var cancelToken: String
 
             try {
+                apiName = FlutterApiRequest.getApiName(request)
                 document = FlutterApiRequest.getGraphQLDocument(request)
                 variables = FlutterApiRequest.getVariables(request)
                 cancelToken = FlutterApiRequest.getCancelToken(request)
@@ -48,6 +50,7 @@ class FlutterGraphQLApi {
                 return
             }
             var operation = Amplify.API.query(
+                    apiName,
                     SimpleGraphQLRequest<String>(
                             document,
                             variables,
@@ -81,11 +84,13 @@ class FlutterGraphQLApi {
 
         @JvmStatic
         fun mutate(flutterResult: MethodChannel.Result, request: Map<String, Any>) {
+            var apiName: String
             var document: String
             var variables: Map<String, Any>
             var cancelToken: String
 
             try {
+                apiName = FlutterApiRequest.getApiName(request)
                 document = FlutterApiRequest.getGraphQLDocument(request)
                 variables = FlutterApiRequest.getVariables(request)
                 cancelToken = FlutterApiRequest.getCancelToken(request)
@@ -97,6 +102,7 @@ class FlutterGraphQLApi {
                 return
             }
             var operation = Amplify.API.mutate(
+                    apiName,
                     SimpleGraphQLRequest<String>(
                             document,
                             variables,
@@ -130,12 +136,14 @@ class FlutterGraphQLApi {
 
         @JvmStatic
         fun subscribe(flutterResult: MethodChannel.Result, request: Map<String, Any>, graphqlSubscriptionStreamHandler: GraphQLSubscriptionStreamHandler) {
+            var apiName: String
             var document: String
             var variables: Map<String, Any>
             var id: String
             var established = false
 
             try {
+                apiName = FlutterApiRequest.getApiName(request)
                 document = FlutterApiRequest.getGraphQLDocument(request)
                 variables = FlutterApiRequest.getVariables(request)
                 id = FlutterApiRequest.getCancelToken(request)
@@ -147,6 +155,7 @@ class FlutterGraphQLApi {
                 return
             }
             var operation = Amplify.API.subscribe(
+                    apiName,
                     SimpleGraphQLRequest<String>(
                             document,
                             variables,

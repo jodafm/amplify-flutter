@@ -115,5 +115,18 @@ class FlutterApiRequest {
             }
         }
 
+        // ====== SHARED ======
+
+        fun getApiName(request: Map<String, Any>) : String {
+            try {
+                return request[API_NAME_KEY] as String
+            } catch (cause: Exception) {
+                throw AmplifyException(
+                    "The apiName request argument was not passed as a String",
+                    cause,
+                    "The request should include the apiName as a String")
+            }
+        }
+
     }
 }

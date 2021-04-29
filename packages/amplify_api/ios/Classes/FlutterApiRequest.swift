@@ -44,6 +44,14 @@ class FlutterApiRequest {
         return cancelToken
     }
 
+    static func getApiName(methodChannelRequest: [String: Any]) throws -> String {
+        guard let apiName = methodChannelRequest["apiName"] as? String else {
+             throw APIError.invalidConfiguration("The apiName request argument was not passed as a String",
+                                                "The request should include the apiName document as a String")
+        }
+        return apiName
+    }
+
 
     // ====== GRAPH QL ======
     static func getGraphQLDocument(methodChannelRequest: [String: Any]) throws -> String {
