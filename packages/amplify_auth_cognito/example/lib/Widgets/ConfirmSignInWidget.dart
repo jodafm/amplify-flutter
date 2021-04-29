@@ -7,7 +7,7 @@ class ConfirmSignInWidget extends StatefulWidget {
   final Function showResult;
   final Function changeDisplay;
   final Function setError;
-  final Function backToSignIn;
+  final VoidCallback backToSignIn;
 
   ConfirmSignInWidget(
       this.showResult, this.changeDisplay, this.setError, this.backToSignIn);
@@ -24,7 +24,8 @@ class _ConfirmSignInWidgetState extends State<ConfirmSignInWidget> {
     try {
       var res = await Amplify.Auth.confirmSignIn(
           confirmationValue: confirmationCodeController.text.trim());
-      widget.showResult('Confirm Sign In Status = ' + res.nextStep!.signInStep);
+      widget.showResult(
+          'Confirm Sign In Status = ${res.nextStep?.signInStep ?? 'null'}');
       widget.changeDisplay(res.nextStep!.signInStep == 'DONE'
           ? 'SIGNED_IN'
           : 'SHOW_CONFIRM_SIGN_IN');
@@ -58,7 +59,7 @@ class _ConfirmSignInWidgetState extends State<ConfirmSignInWidget> {
               const Padding(padding: EdgeInsets.all(10.0)),
               ElevatedButton(
                 key: Key('goto-signin-button'),
-                onPressed: () => widget.backToSignIn,
+                onPressed: widget.backToSignIn,
                 child: const Text('Back to Sign In'),
               ),
             ],
