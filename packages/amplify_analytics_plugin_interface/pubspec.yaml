@@ -6,11 +6,16 @@ homepage: https://github.com/aws-amplify/amplify-flutter/tree/master/packages/am
 environment:
   sdk: ">=2.7.0 <3.0.0"
 
+publish_to: none
 dependencies:
   flutter:
     sdk: flutter
   meta: ^1.1.8
-  amplify_core: 0.1.4
+  amplify_core:
+    git:
+      url: git://github.com/jodafm/amplify-flutter.git
+      path: packages/amplify_core
+      ref: withApiName
 
 dev_dependencies:
   flutter_test:

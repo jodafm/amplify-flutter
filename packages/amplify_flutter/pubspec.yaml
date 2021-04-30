@@ -7,16 +7,41 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
   flutter: ">=1.17.0"
 
+publish_to: none
 dependencies:
   flutter:
     sdk: flutter
   plugin_platform_interface: ^2.0.0
-  amplify_storage_plugin_interface: 0.1.4
-  amplify_analytics_plugin_interface: 0.1.4
-  amplify_auth_plugin_interface: 0.1.4
-  amplify_datastore_plugin_interface: 0.1.4
-  amplify_api_plugin_interface: 0.1.4
-  amplify_core: 0.1.4
+  amplify_storage_plugin_interface:
+    git:
+      url: git://github.com/jodafm/amplify-flutter.git
+      path: packages/amplify_storage_plugin_interface
+      ref: withApiName
+  amplify_analytics_plugin_interface:
+    git:
+      url: git://github.com/jodafm/amplify-flutter.git
+      path: packages/amplify_analytics_plugin_interface
+      ref: withApiName
+  amplify_auth_plugin_interface:
+    git:
+      url: git://github.com/jodafm/amplify-flutter.git
+      path: packages/amplify_auth_plugin_interface
+      ref: withApiName
+  amplify_datastore_plugin_interface:
+    git:
+      url: git://github.com/jodafm/amplify-flutter.git
+      path: packages/amplify_datastore_plugin_interface
+      ref: withApiName
+  amplify_api_plugin_interface:
+    git:
+      url: git://github.com/jodafm/amplify-flutter.git
+      path: packages/amplify_api_plugin_interface
+      ref: withApiName
+  amplify_core:
+    git:
+      url: git://github.com/jodafm/amplify-flutter.git
+      path: packages/amplify_core
+      ref: withApiName
 
 dev_dependencies:
   flutter_test:
