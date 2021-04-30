@@ -18,13 +18,13 @@ import 'package:flutter/foundation.dart';
 import '../UUID.dart';
 
 class GraphQLRequest<T> {
-  String appName;
+  String apiName;
   String document;
   Map<String, dynamic> variables = {};
   String cancelToken = UUID.getUUID();
 
   GraphQLRequest(
-      {@required this.appName,
+      {@required this.apiName,
       @required this.document,
       Map<String, dynamic> variables}) {
     if (variables != null) {
@@ -38,7 +38,7 @@ class GraphQLRequest<T> {
     result['document'] = this.document;
     result['variables'] = this.variables;
     result['cancelToken'] = this.cancelToken;
-    result['appName'] = this.appName;
+    result['apiName'] = this.apiName;
     return result;
   }
 }
