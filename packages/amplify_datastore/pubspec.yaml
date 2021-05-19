@@ -7,15 +7,24 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
   flutter: ">=1.17.0"
 
+publish_to: none
 dependencies:
   flutter:
     sdk: flutter
-  amplify_datastore_plugin_interface: 0.1.4
-  amplify_core: 0.1.4
   plugin_platform_interface: ^2.0.0
   date_time_format: ^1.1.0
   meta: ^1.1.8
   collection: ^1.14.13
+  amplify_datastore_plugin_interface: 
+    git:
+      url: git://github.com/jodafm/amplify-flutter.git
+      path: packages/amplify_datastore_plugin_interface
+      ref: apiName_version
+  amplify_core: 
+    git:
+      url: git://github.com/jodafm/amplify-flutter.git
+      path: packages/amplify_core
+      ref: apiName_version
 
 dev_dependencies:
   flutter_test:

@@ -7,12 +7,21 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
   flutter: ">=1.10.0"
 
+publish_to: none
 dependencies:
   flutter:
     sdk: flutter
-  amplify_storage_plugin_interface: 0.1.4
   plugin_platform_interface: ^2.0.0
-  amplify_core: 0.1.4
+  amplify_storage_plugin_interface: 
+    git:
+      url: git://github.com/jodafm/amplify-flutter.git
+      path: packages/amplify_storage_plugin_interface
+      ref: apiName_version
+  amplify_core: 
+    git:
+      url: git://github.com/jodafm/amplify-flutter.git
+      path: packages/amplify_core
+      ref: apiName_version
 
 dev_dependencies:
   flutter_test:
